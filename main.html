@@ -13,13 +13,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
         }
 
         .main-container {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            position: relative;
         }
 
         .download-panel {
@@ -44,7 +45,6 @@
             width: 250px;
             height: 250px;
             text-align: center;
-            transition: transform 0.3s ease;
         }
 
         #downloadBtn:disabled {
@@ -96,6 +96,10 @@
             transform: translate(-50%, -50%);
             width: 250px;
         }
+        
+        .container-title {
+          font-size: 20px;
+        }
 
         .close-button {
             background-color: white;
@@ -136,6 +140,9 @@
         <div class="blur-background" id="blurBackground"></div>
         
         <div class="download-panel" id="downloadPanel">
+            <span class="container-title">Download</span>
+            <br >
+            <br >
             <button id="clickOnAds" onclick="enableDownloadAndRedirect()">Click on Ads</button>
             <button id="downloadBtn" disabled onclick="redirectToDownload()">Download</button>
             <div id="howToDownload" onclick="showHelp()">How to Download?</div>
@@ -152,21 +159,9 @@
         </div>
         
         <div class="AdvertisementZone">
+            <div class="container-title">Advertisement</div>
             <br >
             <br >
-            <br >
-            <br >
-            <span>Advertisement</span>
-            <script type="text/javascript">
-                atOptions = {
-                'key' : '6c4c78d829b256ae11ad1322b694321f',
-                'format' : 'iframe',
-                'height' : 250,
-                'width' : 250,
-                'params' : {}
-                };
-                document.write('<scr' + 'ipt type="text/javascript" src="//performtechnique.com/6c4c78d829b256ae11ad1322b694321f/invoke.js"></scr' + 'ipt>');
-            </script>
             <script async="async" data-cfasync="false" src="//performtechnique.com/53680021637566789744deca2e9e0057/invoke.js"></script>
             <div id="container-53680021637566789744deca2e9e0057"></div>
         </div>
