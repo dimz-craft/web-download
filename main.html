@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: white;
+            font-family: 'Nunito', sans-serif;
+            font-weight: bold;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .download-panel {
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border: 1px solid black;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px;
+            max-width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        #clickOnAds,
+        #downloadBtn {
+            background-color: white;
+            color: black;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+            border: 1px solid white;
+            margin: 5px;
+            padding: 15px;
+            width: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        #downloadBtn:disabled {
+            opacity: 0.5;
+        }
+
+        #howToDownload {
+            color: black;
+            cursor: pointer;
+            margin-top: 10px;
+            margin-right: 180px;
+            text-decoration: underline;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .help-panel {
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border: 1px solid black;
+            padding: 20px;
+            position: absolute;
+            display: none;
+            z-index: 3;
+            border-radius: 10px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 160px;
+        }
+
+        .close-button {
+            background-color: white;
+            color: black;
+            border: 1px solid white;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 50%;
+            position: absolute;
+            top: 3px;
+            right: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .instructions {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 2;
+        }
+
+        .popup button {
+            background-color: white;
+            color: black;
+            border: 1px solid white;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        
+        .blur-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 2;
+            display: none;
+        }
+    </style>
+    <title>Download Website</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="blur-background" id="blurBackground"></div>
+        <div class="download-panel" id="downloadPanel">
+            <button id="clickOnAds" onclick="enableDownload()">Click on Ads</button>
+            <button id="downloadBtn" disabled onclick="showPopup()">Download</button>
+            <div id="howToDownload" onclick="showHelp()">How to Download</div>
+        </div>
+
+        <div class="help-panel" id="helpPanel">
+            <div class="close-button" onclick="closeHelp()">&#10006;</div>
+            <p class="instructions">
+                1. Click button "Click on Ads"<br>
+                2. Wait for 15 seconds<br>
+                3. Back to website download<br>
+                4. Download content
+            </p>
+        </div>
+
+        <div class="popup" id="popup">
+            <p>Please click on "Click on Ads" first.</p>
+            <button onclick="closePopup()">OK</button>
+        </div>
+    </div>
+
+    <script>
+        function enableDownload() {
+            document.getElementById("downloadBtn").disabled = false;
+        }
+
+        function showPopup() {
+            document.getElementById("popup").style.display = "block";
+            setTimeout(closePopup, 3000);
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+
+       function showHelp() {
+    document.getElementById("blurBackground").style.display = "block";
+    document.getElementById("helpPanel").style.display = "block";
+}
+
+function closeHelp() {
+    document.getElementById("blurBackground").style.display = "none";
+    document.getElementById("helpPanel").style.display = "none";
+}
+    </script>
+</body>
+</html>
